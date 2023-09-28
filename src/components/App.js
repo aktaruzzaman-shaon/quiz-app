@@ -2,7 +2,8 @@ import "../styles/App.css"
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
-import SignUp from "./pages/SignUp";
+import Result from "./pages/Result";
+// import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Layout>
         {/* <Home></Home> */}
         {/* <SignUp></SignUp> */}
-        <Quiz></Quiz>
-        
+        {/* <Quiz></Quiz> */}
+        <Result></Result>
+
       </Layout>
     </div>
   );
