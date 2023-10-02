@@ -6,19 +6,22 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import { AuthProvider } from "../contexts/AuthContext"
 
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/signup" element={<SignUp></SignUp>}></Route>
-          <Route path="/quiz" element={<Quiz></Quiz>}></Route>
-          <Route path="/result" element={<Result></Result>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-        </Routes>
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/signup" element={<SignUp></SignUp>}></Route>
+            <Route path="/quiz" element={<Quiz></Quiz>}></Route>
+            <Route path="/result" element={<Result></Result>}></Route>
+            <Route path="/login" element={<Login></Login>}></Route>
+          </Routes>
+        </Layout>
+      </AuthProvider>
     </div>
   )
 }
