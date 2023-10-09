@@ -19,7 +19,7 @@ const Acccount = () => {
                 ) :
                     (
                         <>
-                            <Link to="/signup">Signup</Link>
+                            {!currentUser && <Link to="/signup">Signup</Link>}
                             <Link to="/login">Login</Link>
                         </>
                     )

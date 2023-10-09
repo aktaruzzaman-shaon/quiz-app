@@ -10,6 +10,7 @@ import { AuthProvider } from "../contexts/AuthContext"
 import PrivateRoute from "./PrivateRoute";
 
 function App() {
+
   return (
     <div className="App">
       <AuthProvider>
@@ -17,14 +18,19 @@ function App() {
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/signup" element={<SignUp></SignUp>}></Route>
-            <PrivateRoute path="/quiz" element={<Quiz></Quiz>}></PrivateRoute>
-            <PrivateRoute path="/result" element={<Result></Result>}></PrivateRoute>
+            <Route path="/quiz" element={<PrivateRoute>
+              <Quiz></Quiz>
+            </PrivateRoute>}></Route>
+            <Route path="/result" element={<PrivateRoute>
+              <Result></Result>
+            </PrivateRoute>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
           </Routes>
         </Layout>
       </AuthProvider>
     </div>
   )
+
 }
 
 export default App;

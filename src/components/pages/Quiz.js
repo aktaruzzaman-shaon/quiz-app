@@ -11,7 +11,6 @@ const Quiz = () => {
             <Answers></Answers>
             <ProgressBar></ProgressBar>
             <MiniPlayer></MiniPlayer>
-
         </>
     );
 };

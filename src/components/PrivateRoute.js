@@ -1,19 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useDebugValue, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Route, useNavigate, redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ children }) => {
     const { currentUser } = useAuth();
     const navigate = useNavigate();
-    return currentUser ? (
-        <Route {...rest}>{(props) => <Component {...props}></Component>}</Route>
-    ) : (
+    useEffect(() => {
+        if (!currentUser) {
+            navigate("/login")
+            return
+        }
+    }, [])
 
-        <Fragment>
-            {navigate("/")}
-        </Fragment>
-
-    );
+    return children;
 };
 
 export default PrivateRoute;
